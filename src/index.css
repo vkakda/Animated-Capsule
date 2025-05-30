@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+/* Top Half: Red gradient (shiny effect) */
+.capsule-top {
+  background: linear-gradient(
+    135deg,
+    #ff6666 0%,     /* soft red */
+    #ff4d4d 25%,    /* primary red */
+    #e60000 50%,    /* deep red */
+    #cc0000 75%,    /* deeper tone for contrast */
+    #ff4d4d 100%    /* back to mid red for loop */
+  );
+  box-shadow:
+    inset 1px 1px 3px rgba(255, 255, 255, 0.15),
+    inset -1px -1px 3px rgba(150, 0, 0, 0.2),
+    1px 1px 3px rgba(180, 0, 0, 0.25);
+}
+
+/* Bottom Half: Yellow gradient (shiny effect) */
+.capsule-bottom {
+  background: linear-gradient(
+    135deg,
+    #fff799 0%,     /* soft yellow */
+    #fff44f 25%,    /* bright lemon yellow */
+    #ffcc00 50%,    /* strong yellow */
+    #ffaa00 75%,    /* orange hint for depth */
+    #fff44f 100%    /* back to bright yellow */
+  );
+  box-shadow:
+    inset 1px 1px 3px rgba(255, 255, 255, 0.12),
+    inset -1px -1px 3px rgba(255, 200, 50, 0.2),
+    1px 1px 2px rgba(200, 150, 50, 0.2);
+}
