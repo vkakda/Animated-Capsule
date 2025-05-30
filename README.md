@@ -1,12 +1,30 @@
-# React + Vite
+# Animated Capsule
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project showcases a simple animated capsule component built with React and GSAP. The capsule smoothly rotates, demonstrating basic animation techniques using modern React hooks and the GSAP animation library.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Smooth capsule rotation animation powered by GSAP
+- Built with React for flexible UI development
+- Minimal and easy-to-understand codebase
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clone the repository.
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+3. Start the development server:
+    ```bash
+    npm start
+    ```
+
+## Customization
+
+You can easily adjust the animation speed, direction, and capsule appearance by editing the component's CSS and GSAP animation logic.
+
+---
+
+Feel free to use or modify this animation in your own projects!
+
