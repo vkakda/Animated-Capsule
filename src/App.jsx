@@ -1,5 +1,5 @@
-import { useRef, useEffect, useMemo } from 'react';
-import gsap from 'gsap';
+import { useRef, useEffect, useMemo } from "react";
+import gsap from "gsap";
 
 const CapsuleAnimation = () => {
   const capsuleRef = useRef(null);
@@ -7,8 +7,8 @@ const CapsuleAnimation = () => {
   const bottomHalfRef = useRef(null);
   const dotsRef = useRef([]);
 
-  // Generate powder dots only once
-  const powderDots = useMemo(() => {  //useMEMO is react hook to increase the performance during value computation.
+  const powderDots = useMemo(() => {
+    //useMEMO is react hook to increase the performance during value computation.
     return Array.from({ length: 100 }).map(() => ({
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
@@ -21,47 +21,51 @@ const CapsuleAnimation = () => {
 
   useEffect(() => {
     if (!capsuleRef.current) return;
-
+    
     const capsuleNode = capsuleRef.current;
 
     // Capsule rotation animation
     const rotation = gsap.to(capsuleNode, {
       rotate: 360,
       duration: 8,
-      ease: 'none',
+      ease: "none",
       repeat: -1,
     });
 
     // Open/close animation timeline
     const openAnim = gsap.timeline({ paused: true });
     openAnim
-      .to(topHalfRef.current, { y: '-50px', duration: 0.5, ease: 'power2.out' })
-      .to(bottomHalfRef.current, { y: '50px', duration: 0.5, ease: 'power2.out' }, '<');
+      .to(topHalfRef.current, { y: "-50px", duration: 0.5, ease: "power2.out" })
+      .to(
+        bottomHalfRef.current,
+        { y: "50px", duration: 0.5, ease: "power2.out" },
+        "<"
+      );
 
     // Event handlers (saved references for cleanup)
     const handleMouseEnter = () => openAnim.play();
     const handleMouseLeave = () => openAnim.reverse();
 
-    capsuleNode.addEventListener('mouseenter', handleMouseEnter);
-    capsuleNode.addEventListener('mouseleave', handleMouseLeave);
+    capsuleNode.addEventListener("mouseenter", handleMouseEnter);
+    capsuleNode.addEventListener("mouseleave", handleMouseLeave);
 
     // Animate powder dots
     dotsRef.current.forEach((dot) => {
       if (dot) {
         gsap.to(dot, {
-          y: '-20px',
+          y: "-20px",
           duration: 0.45 + Math.random() * 0.15,
           repeat: -1,
           yoyo: true,
-          ease: 'sine.inOut',
+          ease: "sine.inOut",
           delay: Math.random(),
         });
         gsap.to(dot, {
-          opacity: '+=0.2',
+          opacity: "+=0.2",
           duration: 1 + Math.random(),
           repeat: -1,
           yoyo: true,
-          ease: 'sine.inOut',
+          ease: "sine.inOut",
         });
       }
     });
@@ -70,8 +74,8 @@ const CapsuleAnimation = () => {
     return () => {
       rotation.kill();
       openAnim.kill();
-      capsuleNode.removeEventListener('mouseenter', handleMouseEnter);
-      capsuleNode.removeEventListener('mouseleave', handleMouseLeave);
+      capsuleNode.removeEventListener("mouseenter", handleMouseEnter);
+      capsuleNode.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [powderDots]);
 
@@ -109,7 +113,7 @@ const CapsuleAnimation = () => {
                   width: dot.width,
                   height: dot.height,
                   opacity: dot.opacity,
-                  backgroundColor: 'rgba(255, 255, 255, 0.7)',
+                  backgroundColor: "rgba(255, 255, 255, 0.7)",
                   borderRadius: dot.borderRadius,
                 }}
               />
